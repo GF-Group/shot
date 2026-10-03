@@ -814,7 +814,20 @@ function openShotModal(shotId){
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <img src="${esc(sub.shot.imageUrl)}" style="width:100%;max-height:65vh;object-fit:contain;background:#000;border-radius:12px" alt="Screenshot">
-    <div class="hint mt">${esc(sub.participant?.nickname||'کاربر')} · ${esc(sub.game?.title||'—')} · <span class="ltr">${esc(sub.shotId||'—')}</span></div>
+    <div class="hint mt" style="line-height:2">
+  👤 شرکت‌کننده: <b style="color:var(--text)">${esc(sub.participant?.nickname||'—')}</b>
+  <br>
+  🎮 سری بازی: <b style="color:var(--text)">${esc(sub.game?.title||'—')}</b>
+  <br>
+  🕹️ پلتفرم: <b style="color:var(--text)">${esc(sub.game?.platform||'—')}</b>
+  <br>
+  📝 توضیحات:
+  <span style="color:var(--text)">
+    ${esc(sub.shot?.description||'توضیحی ثبت نشده است.')}
+  </span>
+  <br>
+  🔖 کد Screenshot: <span class="ltr">${esc(sub.shotId||'—')}</span>
+</div>
   `);
 }
 function fmtBytes(n){ return (Number(n||0)/1024/1024).toFixed(2)+' MB'; }
